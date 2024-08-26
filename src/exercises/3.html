@@ -24,22 +24,58 @@
   <script type="text/babel">
     // 🦁 Remplace tout ceci par du JSX !
     // 💡 <button id=...
-    const startButton = React.createElement(
-      'button',
-      {
-        id: 'start',
-        onClick: () => {
-          alert('Le bouton start à été cliqué !');
-        },
-      },
-      'Start'
+    // const startButton = React.createElement(
+    //   'button',
+    //   {
+    //     id: 'start',
+    //     onClick: () => {
+    //       alert('Le bouton start à été cliqué !');
+    //     },
+    //   },
+    //   'Start'
+    // );
+    const button = (
+      <button
+        id="sart"
+        className="btn btn-primary"
+        onClick={() => alert('Le bouton a été cliqué !')}
+      >
+        Hello 👋
+      </button>
     );
 
+    const Card = (props) => {
+      return (
+        <div className="card bg-base-100 w-96 shadow-xl">
+          <figure>
+            <img src={props.image} />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title"> {props.children}</h2>
+          </div>
+        </div>
+      );
+    };
+
+    const main = (
+      <div>
+        {button}
+        <Card image="../images/AvatarMoi.png">
+          <p>Moi</p>
+        </Card>
+        <Card image="../images/kebab-case.webp">
+          <p>Camel</p>
+        </Card>
+        <h2>{Math.random()}</h2>
+        <p>{112 + 4}</p>
+        <span>{new Date().toTimeString()}</span>
+      </div>
+    );
     // 🦁 Remplace tout ceci par du JSX !
     // 💡 <div>...
-    const elements = React.createElement('div', null, startButton);
+    // const elements = React.createElement('div', null, startButton);
 
     const root = ReactDOM.createRoot(document.querySelector('#root'));
-    root.render(elements);
+    root.render(main);
   </script>
 </html>
